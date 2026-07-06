@@ -24,7 +24,7 @@ export function FilterInput({ threshold, onChange }: FilterInputProps) {
           value={threshold} 
           onChange={(e) => onChange(Number(e.target.value))}
           placeholder="e.g. 5000"
-          className="bg-black/20"
+          className="bg-background border-card-border"
         />
       </div>
     </div>

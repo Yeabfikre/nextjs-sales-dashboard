@@ -1,30 +1,52 @@
 @import "tailwindcss";
 
-:root {
-  /* Dark Mode Only Design */
-  --background: #09090b; /* Zinc 950 */
-  --foreground: #fafafa; /* Zinc 50 */
-  
-  /* Primary Accent: Electric Violet/Blue */
-  --primary: #8b5cf6; 
-  --primary-foreground: #ffffff;
-  
-  /* Card and Glass Colors */
-  --card: rgba(24, 24, 27, 0.4);
-  --card-border: rgba(255, 255, 255, 0.1);
-  --card-foreground: #fafafa;
-  
-  --muted: #27272a;
-  --muted-foreground: #a1a1aa;
-  
-  --accent: #3b82f6;
-  --accent-foreground: #ffffff;
+@custom-variant dark (&:is(.dark *));
 
-  --chart-1: #8b5cf6; /* Violet */
-  --chart-2: #3b82f6; /* Blue */
-  --chart-3: #ec4899; /* Pink */
-  --chart-4: #10b981; /* Emerald */
-  --chart-5: #f59e0b; /* Amber */
+:root {
+  /* TailAdmin Light Theme Variables */
+  --background: #F1F5F9; /* body bg */
+  --foreground: #1C2434; /* Text color */
+  
+  --card: #FFFFFF;
+  --card-border: #E2E8F0;
+  --card-foreground: #1C2434;
+  
+  --primary: #3C50E0;
+  --primary-foreground: #FFFFFF;
+  
+  --muted: #F3F4F6;
+  --muted-foreground: #64748B;
+  
+  --accent: #10B981; /* Emerald/Green used for positive trends */
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444; /* Red for negative trends */
+
+  /* Chart Colors */
+  --chart-1: #3C50E0; /* Primary Blue */
+  --chart-2: #80CAEE; /* Light Blue */
+  --chart-3: #10B981; /* Emerald */
+  --chart-4: #F59E0B; /* Amber */
+  --chart-5: #64748B; /* Slate */
+}
+
+.dark {
+  /* TailAdmin Dark Theme Variables */
+  --background: #1A222C;
+  --foreground: #AEB7C0;
+  
+  --card: #24303F;
+  --card-border: #313D4A;
+  --card-foreground: #FFFFFF;
+  
+  --primary: #3C50E0;
+  --primary-foreground: #FFFFFF;
+  
+  --muted: #313D4A;
+  --muted-foreground: #8A99AF;
+  
+  --accent: #10B981;
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444;
 }
 
 @theme inline {
@@ -39,6 +61,7 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -50,31 +73,11 @@
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  background-image: radial-gradient(circle at 50% -20%, rgba(139, 92, 246, 0.15), rgba(9, 9, 11, 1) 60%);
-  background-attachment: fixed;
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Glassmorphism Utilities */
-@layer utilities {
-  .glass {
-    background: var(--card);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--card-border);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  }
-  
-  .glass-hover {
-    transition: all 0.3s ease;
-  }
-  .glass-hover:hover {
-    background: rgba(39, 39, 42, 0.6);
-    border-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-  }
-}
+/* Remove old glassmorphism utilities */

@@ -12,7 +12,7 @@ interface ChartTypeSelectorProps {
 
 export function ChartTypeSelector({ selected, onSelect }: ChartTypeSelectorProps) {
   return (
-    <div className="flex bg-black/40 p-1 rounded-lg border border-card-border backdrop-blur-md">
+    <div className="flex bg-muted p-1 rounded-sm border border-card-border">
       <Button 
         variant={selected === "bar" ? "default" : "ghost"} 
         onClick={() => onSelect("bar")}

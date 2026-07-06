@@ -39,16 +39,16 @@ export function SalesChart({ data, type, threshold }: SalesChartProps) {
     const { active, payload, label } = props;
     if (active && payload && payload.length) {
       return (
-        <div className="glass p-3 rounded-lg border border-card-border shadow-2xl backdrop-blur-xl">
+        <div className="bg-card p-3 rounded-md border border-card-border shadow-md">
           <p className="font-semibold text-foreground mb-2">{label || payload[0]?.name}</p>
           {payload.map((entry: any, index: number) => (
             <div key={`item-${index}`} className="flex items-center text-sm mb-1">
               <div 
-                className="w-3 h-3 rounded-full mr-2 shadow-[0_0_8px_currentColor]"
-                style={{ backgroundColor: entry.color, color: entry.color }}
+                className="w-3 h-3 rounded-full mr-2"
+                style={{ backgroundColor: entry.color }}
               />
               <span className="text-muted-foreground mr-4">{entry.name}:</span>
-              <span className="font-mono font-medium text-foreground">${entry.value.toLocaleString()}</span>
+              <span className="font-medium text-foreground">${entry.value.toLocaleString()}</span>
             </div>
           ))}
         </div>
@@ -71,7 +71,7 @@ export function SalesChart({ data, type, threshold }: SalesChartProps) {
           <CartesianGrid strokeDasharray="3 3" stroke="var(--card-border)" vertical={false} />
           <XAxis dataKey="month" stroke="var(--muted-foreground)" fontSize={12} tickLine={false} axisLine={false} />
           <YAxis stroke="var(--muted-foreground)" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `$${value/1000}k`} />
-          <Tooltip content={renderTooltip} cursor={{ fill: 'rgba(255,255,255,0.05)' }} />
+          <Tooltip content={renderTooltip} cursor={{ fill: 'rgba(0,0,0,0.05)' }} />
           <Legend iconType="circle" wrapperStyle={{ paddingTop: '20px' }} />
           <Bar dataKey="year2022" name="2022" fill={COLORS.year2022} radius={[4, 4, 0, 0]} />
           <Bar dataKey="year2023" name="2023" fill={COLORS.year2023} radius={[4, 4, 0, 0]} />

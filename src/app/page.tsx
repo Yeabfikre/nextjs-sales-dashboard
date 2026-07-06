@@ -1,6 +1,5 @@
 import { fetchSalesData } from "@/lib/api";
 import { DashboardLayout } from "@/components/templates/DashboardLayout";
-import { DashboardHeader } from "@/components/organisms/DashboardHeader";
 import { DashboardClient } from "@/components/organisms/DashboardClient";
 
 export default async function Home() {
@@ -9,7 +8,6 @@ export default async function Home() {
 
   return (
     <DashboardLayout>
-      <DashboardHeader />
       {salesData.length > 0 ? (
         <DashboardClient initialData={salesData} />
       ) : (
