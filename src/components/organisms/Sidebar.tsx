@@ -11,7 +11,7 @@ export function Sidebar() {
         <div className="w-8 h-8 rounded-md bg-primary flex items-center justify-center text-white">
           <BarChart2 size={20} />
         </div>
-        <span className="text-2xl font-bold">TailAdmin</span>
+        <span className="text-2xl font-bold">Nexus Sales</span>
       </div>
 
       {/* Menu Area */}

@@ -16,14 +16,14 @@ export function FilterInput({ threshold, onChange }: FilterInputProps) {
       </div>
       <div className="flex-1">
         <label htmlFor="threshold" className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1 block">
-          Min Sales Threshold
+          Min Monthly Total
         </label>
         <Input 
           id="threshold"
           type="number" 
           value={threshold} 
           onChange={(e) => onChange(Number(e.target.value))}
-          placeholder="e.g. 5000"
+          placeholder="e.g. 25000"
           className="bg-background border-card-border"
         />
       </div>

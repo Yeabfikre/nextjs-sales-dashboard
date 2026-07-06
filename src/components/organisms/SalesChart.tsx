@@ -22,7 +22,7 @@ const COLORS = {
 export function SalesChart({ data, type, threshold }: SalesChartProps) {
   // Apply threshold filter (only show months where total sales exceed threshold)
   const filteredData = data.filter(
-    (item) => (item.year2022 + item.year2023 + item.year2024) / 3 >= threshold
+    (item) => (item.year2022 + item.year2023 + item.year2024) >= threshold
   );
 
   if (filteredData.length === 0) {
